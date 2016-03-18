@@ -1,0 +1,30 @@
+From 77508fd109b6dbde3dbe5891eea3323187c5bf9b Mon Sep 17 00:00:00 2001
+From: huangqiwu <huangqiwu@xiaomi.com>
+Date: Thu, 21 Jan 2016 22:17:34 +0800
+Subject: [PATCH] Fix switch sim card crash
+
+Change-Id: I33a7128e221215d52a78b865af2697bbb719d076
+Signed-off-by: huangqiwu <huangqiwu@xiaomi.com>
+---
+ src/java/com/android/internal/telephony/ModemBindingPolicyHandler.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/java/com/android/internal/telephony/ModemBindingPolicyHandler.java b/src/java/com/android/internal/telephony/ModemBindingPolicyHandler.java
+index 0810165..6ffbdf4 100644
+--- a/src/java/com/android/internal/telephony/ModemBindingPolicyHandler.java
++++ b/src/java/com/android/internal/telephony/ModemBindingPolicyHandler.java
+@@ -284,10 +284,10 @@ public class ModemBindingPolicyHandler extends Handler {
+ 
+     private void handleGetPreferredNetwork(Message msg) {
+         AsyncResult ar = (AsyncResult) msg.obj;
+-        int modemNetworkMode = ((int[]) ar.result)[0];
+         int phoneId = msg.arg1;
+         int networkMode = msg.arg2; // unused.
+         if (ar.exception == null) {
++		    int modemNetworkMode = ((int[]) ar.result)[0];
+             logd("Updating network mode in DB for slot[" + phoneId + "] with "
+                     + modemNetworkMode);
+             TelephonyManager.putIntAtIndex(mContext.getContentResolver(),
+-- 
+1.9.1
+

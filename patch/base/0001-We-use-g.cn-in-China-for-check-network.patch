@@ -1,0 +1,27 @@
+From 0e488a21e37852eb0274fbbbf17538905dbf2968 Mon Sep 17 00:00:00 2001
+From: huangqiwu <huangqiwu@xiaomi.com>
+Date: Mon, 25 Jan 2016 09:05:40 +0800
+Subject: [PATCH] We use g.cn in China for check network
+
+Change-Id: I858ce4054cee503b5fc5390b23a881e8c53a15e7
+Signed-off-by: huangqiwu <huangqiwu@xiaomi.com>
+---
+ services/core/java/com/android/server/connectivity/NetworkMonitor.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/services/core/java/com/android/server/connectivity/NetworkMonitor.java b/services/core/java/com/android/server/connectivity/NetworkMonitor.java
+index 87f78c1..c989be6 100644
+--- a/services/core/java/com/android/server/connectivity/NetworkMonitor.java
++++ b/services/core/java/com/android/server/connectivity/NetworkMonitor.java
+@@ -69,7 +69,7 @@ import java.util.Random;
+ public class NetworkMonitor extends StateMachine {
+     private static final boolean DBG = true;
+     private static final String TAG = "NetworkMonitor";
+-    private static final String DEFAULT_SERVER = "connectivitycheck.android.com";
++    private static final String DEFAULT_SERVER = "g.cn";
+     private static final int SOCKET_TIMEOUT_MS = 10000;
+     public static final String ACTION_NETWORK_CONDITIONS_MEASURED =
+             "android.net.conn.NETWORK_CONDITIONS_MEASURED";
+-- 
+1.9.1
+
